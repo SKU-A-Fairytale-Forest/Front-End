@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BackgroundImage from "../assets/StoryFlow/Background.png";
+import BackgroundImage from "../../assets/StoryFlow/Background.png";
 
 export const Container = styled.div`
   display: flex;
@@ -18,11 +18,14 @@ export const Header = styled.div`
   height: 130px;
   z-index: 100;
   align-items: center;
+  padding-left: 20px;
 `;
 
 export const HeaderElement = styled.div`
-  display: block;
+  display: inline-block;
   width: 150px;
+  margin-left: 20px;
+
   /* padding-left: 20px; */
   justify-content: center;
   text-align: center;

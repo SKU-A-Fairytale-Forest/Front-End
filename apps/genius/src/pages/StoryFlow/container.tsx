@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as S from "./styles";
-import RightAngleBracket from "../assets/StoryFlow/RightAngleBracket.svg";
+import RightAngleBracket from "../../assets/StoryFlow/RightAngleBracket.svg";
 
 type HeaderElementsType = {
   text1: string;
@@ -67,7 +67,7 @@ const HeaderElementText = ({
   highlight: boolean;
 }) => {
   return (
-    <S.HeaderElement style={{backgroundColor: highlight ? '#ffd700' : 'transparent', width: '170px', padding: '20px',borderRadius: '50px'}}>
+    <S.HeaderElement style={{backgroundColor: highlight ? '#f5deb3' : 'transparent', width: '170px', padding: '20px',borderRadius: '50px'}}>
       <p style={{ fontSize: size, color: color }}>{text1}</p>
       <p style={{ fontSize: size, color: color }}>{text2}</p>
     </S.HeaderElement>
@@ -75,7 +75,9 @@ const HeaderElementText = ({
 };
 
 export const Header = () => {
-  const [selectedStepIndex, setSelectedStepIndex] = useState(0);
+
+  const [selectedStepIndex, setSelectedStepIndex] = useState(3);
+
   return (
     <S.Header>
       <h1>Logo</h1>
