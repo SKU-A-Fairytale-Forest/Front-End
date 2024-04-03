@@ -1,52 +1,88 @@
+// SelectCharStyle.ts
+
 import styled from 'styled-components';
 
+interface CharacterButtonProps {
+  isAlKong?: boolean;
+}
 
 export const AppContainer = styled.div`
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   display: flex;
   height: 100vh;
-  width: 100vw; 
+  width: 100%; 
+  overflow: hidden;
 `;
 
 export const CharacterContainer = styled.div`
+  position: relative;
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%; 
+  border: 2px solid #fff;
+  overflow: hidden; /* 이미지가 넘치지 않도록 오버플로우를 숨깁니다. */
 
   &:nth-child(1) {
-    background: #7EC7B1;
+    background-image: url('./src/assets/DalkongBG.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   &:nth-child(2) {
-    background: purple;
+    background-image: url('./src/assets/AlkongBG.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &.selected {
+    border: 2px solid #7EC7B1;
   }
 `;
 
-export const CharacterButton = styled.button`
-  font-size: 100px;
+export const CharacterButton = styled.button<CharacterButtonProps>`
+  position: relative;
+  margin-top: -350px;
+  font-size: 30px;
   font-weight: bold;
-  padding: 100px;
-  border-radius: 50px;
-  border: #ffffff;
+  padding: 20px 35px;
+  border-radius: 40px;
+  border: none;
+  background-color: #ffffff;
+  color: ${({ isAlKong }) => (isAlKong ? '#7EC7B1' : '#D057A9')};
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  transition: 0.3s;
+  transition: color 0.3s, transform 0.3s; /* 글자색 및 이동 트랜지션 추가 */
 
   &:hover {
-    transform: translateY(2px);
-    box-shadow: 0 0 rgba(0, 0, 0, 0);
+    color: ${({ isAlKong }) => (isAlKong ? '#6DA697' : '#B84890')};
+    transform: translateY(-2px); /* 호버 시 살짝 위로 이동 */
   }
 `;
 
-export const AlKongButton = styled(CharacterButton)`
-  background-color: #ffffff;
+export const DalKongButton = styled(CharacterButton)<CharacterButtonProps>`
   color: #7EC7B1;
+  &:hover {
+    color: #6DA697;
+    transform: translateY(-2px); /* 호버 시 살짝 위로 이동 */
+  }
 `;
 
-export const DalKongButton = styled(CharacterButton)`
-  background-color: #ffffff;
+export const AlKongButton = styled(CharacterButton)<CharacterButtonProps>`
   color: #D057A9;
+  &:hover {
+    color: #B84890;
+    transform: translateY(-2px); /* 호버 시 살짝 위로 이동 */
+  }
+`;
+
+export const CharacterImage = styled.img`
+  position: absolute; /* 상대적인 위치에 대비하여 절대적인 위치로 설정 */
+  top: 360px; /* 버튼 아래에 위치하도록 조정 */
+  width: 200px; /* 이미지 크기 조정 */
 `;

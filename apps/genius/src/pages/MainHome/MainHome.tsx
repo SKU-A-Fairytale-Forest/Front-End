@@ -17,22 +17,43 @@ const MainHome: React.FC = () => {
     <Styles.AppContainer className="app-container">
       <Styles.Navbar className="navbar">
         <Styles.MainMenu className="main-menu">
-          <Link to="/">LOGO</Link>
-          <Link to="/features">주요기능</Link>
-          <Styles.SubMenu className="sub-menu">
-            <Link to="/create-story">동화책 만들기</Link>
-            <Link to="/seed-store">씨앗 상점</Link>
-          </Styles.SubMenu>
-          <Link to="/features">고객센터</Link>
-          <Link to="/features">마이페이지</Link>
+          <Styles.MenuItem>
+            <Link to="/" style={{textDecoration: 'none', color: '#8DD1BD'}}>LOGO</Link>
+          </Styles.MenuItem>
+
+          <Styles.MenuItem>
+            주요기능
+            <Styles.SubMenu className="sub-menu">
+              <Styles.SubMenuItem to="/CreateStory">동화제작</Styles.SubMenuItem>
+              <Styles.SubMenuItem to="/Store">상점</Styles.SubMenuItem>
+            </Styles.SubMenu>
+          </Styles.MenuItem>
+
+          <Styles.MenuItem>
+            동화찾기
+            <Styles.SubMenu className="sub-menu">
+              <Styles.SubMenuItem to="/PopularStories">인기동화</Styles.SubMenuItem>
+              <Styles.SubMenuItem to="/MyStories">나의동화</Styles.SubMenuItem>
+              <Styles.SubMenuItem to="/Search">검색</Styles.SubMenuItem>
+            </Styles.SubMenu>
+          </Styles.MenuItem>
+
+          <Styles.MenuItem>
+            <Link to="/" style={{ textDecoration: 'none', color: '#8DD1BD' }}>고객센터</Link>
+          </Styles.MenuItem>
         </Styles.MainMenu>
+
         <div className="login-signup">
-          <Styles.LoginSignupButton>Login</Styles.LoginSignupButton>
-          <Styles.LoginSignupButton>회원가입</Styles.LoginSignupButton>
+          <Link to="/Login">
+            <Styles.LoginSignupButton>Login</Styles.LoginSignupButton>
+          </Link>
+          <Link to="/SignUp">
+            <Styles.LoginSignupButton>회원가입</Styles.LoginSignupButton>
+          </Link>
         </div>
       </Styles.Navbar>
       <main>
-        <Styles.MainSection className={`main-section animation-container ${animationVisible ? "visible" : ""}`}>
+         <Styles.MainSection className={`main-section ${animationVisible ? "visible" : ""}`}>
           <Styles.MainTitle className="main-title">세상에 단 ‘하나’뿐인 나만의 동화책 이야기 꽃을 피워보세요!</Styles.MainTitle>
           <Styles.MainDescription className="main-description">
             세상에 있는 흔한 동화책 이야기와 결말은 너무 익숙해.<br />
