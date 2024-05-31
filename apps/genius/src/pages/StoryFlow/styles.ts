@@ -1,12 +1,17 @@
 import styled from "styled-components";
-import BackgroundImage from "../../assets/StoryFlow/Background.png";
+import DalkongBG from "../../assets/images/DalkongBG.svg";
+import MakeBookNext from "../../assets/images/MakeBookNext.svg";
+import MakeBookBefore from "../../assets/images/MakeBookBefore.svg";
 
 export const Container = styled.div`
+  background: url(${DalkongBG}) no-repeat center center fixed;
+  background-size: cover;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  position: relative;
 `;
 
 export const Header = styled.div`
@@ -15,20 +20,29 @@ export const Header = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 130px;
+  height: 90px;
+  z-index: 100;
+  align-items: center;
+  padding-left: 20px;
+`;
+
+export const Header2 = styled.div`
+  display: flex;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 90px;
   z-index: 100;
   align-items: center;
   padding-left: 20px;
 `;
 
 export const HeaderElement = styled.div`
-  display: inline-block;
-  width: 150px;
-  margin-left: 20px;
-
-  /* padding-left: 20px; */
+  display: flex;
   justify-content: center;
   text-align: center;
+  align-items: center;
   flex-direction: column;
 `;
 
@@ -38,12 +52,7 @@ export const Contents = styled.div`
   width: 100%;
   margin-top: 130px;
   align-items: center;
-  background-color: black;
-
-  // background-image: url(${BackgroundImage});
-  // background-size: cover;
   overflow: hidden;
-  // height: 100vh;
 `;
 
 export const Content1 = styled.div`
@@ -84,6 +93,7 @@ export const Content1TitleInner = styled.div`
   height: 100%;
   justify-content: center;
   gap: 30px;
+  margin-top: -10px;
 `;
 
 export const Content1InputTitle = styled.div`
@@ -96,6 +106,7 @@ export const Content1InputTitle = styled.div`
   background-color: white;
   border-radius: 50px;
   text-align: center;
+  margin-top: -10px;
 `;
 
 export const Content1InputSubject = styled.div`
@@ -108,6 +119,7 @@ export const Content1InputSubject = styled.div`
   background-color: white;
   border-radius: 50px;
   text-align: center;
+  margin-top: -10px;
 `;
 
 export const Content1Subject = styled.div`
@@ -117,6 +129,7 @@ export const Content1Subject = styled.div`
   height: 70%;
   align-items: center;
   justify-content: center;
+  margin-top: -30px;
 `;
 
 export const Content1SubjectInner = styled.div`
@@ -126,6 +139,7 @@ export const Content1SubjectInner = styled.div`
   height: 100%;
   justify-content: center;
   gap: 30px;
+  margin-top: -30px;
 `;
 
 export const Content2Element = styled.div`
@@ -136,6 +150,7 @@ export const Content2Element = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  position: relative;
 `;
 
 export const Content2ElementInner = styled.div`
@@ -144,7 +159,72 @@ export const Content2ElementInner = styled.div`
   width: 90%;
   height: 80%;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   background-color: white;
   border-radius: 50px;
+  padding: 20px;
+  white-space: pre-line;
+  color: black;
+  text-align: center;
+  font-size: 2em;
+  font-weight: 400;
+`;
+
+export const FixedImage = styled.img`
+  position: absolute;
+  top: 50px;
+  left: 80px;
+  width: 50px;
+  height: auto;
+  z-index: 10;
+`;
+
+export const LogoImage = styled.img`
+  width: 160px;
+  height: 145px;
+  margin-left: -10px;
+  margin-right: -100px;
+`;
+
+export const NextButton = styled.button`
+  background: url(${MakeBookNext}) no-repeat center center;
+  background-size: contain;
+  width: 130px;
+  height: 130px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 200;
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+`;
+
+export const BeforeButton = styled.button`
+  background: url(${MakeBookBefore}) no-repeat center center;
+  background-size: contain;
+  width: 130px;
+  height: 130px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 200;
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+`;
+
+export const ButtonWrapper = styled.div`
+  position: fixed;
+  top: -15px;
+  right: 20px;
+  z-index: 200;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
 `;
